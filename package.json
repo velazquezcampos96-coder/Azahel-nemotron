@@ -1,0 +1,15 @@
+{
+  "name": "azahel-nemotron",
+  "version": "1.0.0",
+  "description": "Nvidia Nemotron-4B IA Backend - Cloudflare Workers",
+  "main": "workers.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "publish": "wrangler publish"
+  },
+  "dependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "devDependencies": {}
+}

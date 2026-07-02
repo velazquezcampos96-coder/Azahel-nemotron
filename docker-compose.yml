@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  azahel-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      NVIDIA_API_KEY: ${NVIDIA_API_KEY}
+      FIREBASE_DATABASE_URL: ${FIREBASE_DATABASE_URL}
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
+    volumes:
+      - .:/app
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+  firebase-emulator:
+    image: google/firebase-tools:latest
+    ports:
+      - "4000:4000"
+      - "9000:9000"
+    volumes:
+      - ./firebase.json:/workspace/firebase.json
+      - ./firebase-rules.json:/workspace/firebase-rules.json

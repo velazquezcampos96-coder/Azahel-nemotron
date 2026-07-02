@@ -1,0 +1,22 @@
+name = "azahel-nemotron"
+main = "workers.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "azahel-nemotron-prod"
+routes = [
+  { pattern = "nemotron.iaabismalhellfire.net/*", zone_name = "iaabismalhellfire.net" }
+]
+
+[env.staging]
+name = "azahel-nemotron-staging"
+
+[[env.production.routes]]
+pattern = "nemotron.iaabismalhellfire.net/*"
+zone_name = "iaabismalhellfire.net"
+
+[env.production.vars]
+NVIDIA_API_KEY = "REPLACE_WITH_SECRET"
+
+[build]
+command = "npm install"
